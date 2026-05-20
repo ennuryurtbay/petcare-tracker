@@ -1,49 +1,261 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: linear-gradient(135deg, #eef7ff, #f5fff7);
   margin: 0;
-  padding: 20px;
+  padding: 30px;
+  color: #222;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 1000px;
   margin: auto;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
+.hero {
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.hero p {
+  color: #666;
+  font-size: 17px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+}
+
+.stat-card span {
+  color: #666;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 34px;
+  margin-top: 10px;
 }
 
 .form-container {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 input {
-  width: 95%;
-  padding: 10px;
-  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin: 9px 0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 12px 18px;
   border: none;
-  background: #4caf50;
+  background: #36b66b;
   color: white;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#updateBtn {
+  background: #2f80ed;
+}
+
+.delete-btn {
+  background: #ff3b30;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.list-header input {
+  max-width: 320px;
 }
 
 .pet-card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  border-left: 6px solid #36b66b;
 }
 
-.delete-btn {
-  background: red;
+.pet-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pet-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 25px;
+}
+
+.pet-card p {
+  font-size: 16px;
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.completed {
+  background: #e5f8ec;
+  color: #168a43;
+}
+
+.pending {
+  background: #fff1df;
+  color: #c46b00;
+}
+
+.card-actions {
+  margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-header input {
+    max-width: 100%;
+  }
+}
+.theme-btn {
+  background: #222;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pet-card {
+  transition: 0.25s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+}
+
+.dark-mode {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: #f9fafb;
+}
+
+.dark-mode .hero,
+.dark-mode .stat-card,
+.dark-mode .form-container,
+.dark-mode .pet-card {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+.dark-mode input {
+  background: #111827;
+  color: white;
+  border: 1px solid #374151;
+}
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin: 9px 0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.result-text {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #168a43;
+}
+.modern-date {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 14px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #222;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modern-date:focus {
+  outline: none;
+  border-color: #37b86c;
+  box-shadow: 0 0 0 4px rgba(55, 184, 108, 0.15);
+}
+
+.modern-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.modern-date::placeholder {
+  color: #8a8a8a;
+}
+.warning {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.warning.soon {
+  background: #fff4d6;
+  color: #9a6a00;
+}
+
+.warning.overdue {
+  background: #ffe0e0;
+  color: #b30000;
 }

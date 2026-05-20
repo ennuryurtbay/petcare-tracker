@@ -16,7 +16,11 @@ db.serialize(() => {
             petType TEXT NOT NULL,
             age INTEGER,
             ownerName TEXT,
-            vaccinationStatus TEXT
+            phoneNumber TEXT,
+            vaccinationStatus TEXT,
+            rabiesDate TEXT,
+            mixedDate TEXT,
+            parasiteDate TEXT
         )
     `);
 });

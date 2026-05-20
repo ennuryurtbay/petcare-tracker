@@ -3,29 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PetCare Track</title>
+  <title>PetCare Track Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
+    <header class="hero">
+  <div>
     <h1>🐾 PetCare Track</h1>
-    <p class="subtitle">A simple pet health and vaccination tracking system.</p>
+    <p>Manage pet health, vaccination and owner records easily.</p>
+  </div>
 
-    <div class="form-container">
+  <button class="theme-btn" onclick="toggleTheme()">
+    🌙 Dark Mode
+  </button>
+</header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>Total Pets</span>
+        <strong id="totalPets">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Completed Records</span>
+        <strong id="completedPets">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Pending Records</span>
+        <strong id="pendingPets">0</strong>
+      </div>
+    </section>
+
+    <section class="form-container">
+      <h2>Add / Update Pet</h2>
+
       <input type="hidden" id="petId">
 
       <input type="text" id="petName" placeholder="Pet Name">
       <input type="text" id="petType" placeholder="Pet Type">
       <input type="number" id="age" placeholder="Age">
       <input type="text" id="ownerName" placeholder="Owner Name">
-      <input type="text" id="vaccinationStatus" placeholder="Vaccination Status">
+      <input type="text" id="phoneNumber" placeholder="Owner Phone Number">
+      <input type="text" id="vaccinationStatus" placeholder="Vaccination Status (Completed / Pending)">
+      
+<input type="text" id="rabiesDate" placeholder="Rabies Vaccine Date (YYYY-DD-MM)">
+<input type="text" id="mixedDate" placeholder="Mixed Vaccine Date (YYYY-DD-MM)">
+<input type="text" id="parasiteDate" placeholder="Parasite Treatment Date (YYYY-DD-MM)">
+      <div class="button-group">
+        <button id="addBtn" onclick="addPet()">Add Pet</button>
+        <button id="updateBtn" onclick="updatePet()" style="display:none;">Update Pet</button>
+      </div>
+    </section>
 
-      <button id="addBtn" onclick="addPet()">Add Pet</button>
-      <button id="updateBtn" onclick="updatePet()" style="display:none;">Update Pet</button>
-    </div>
+    <section class="list-header">
+      <h2>Registered Pets</h2>
+      <input type="text" id="searchInput" placeholder="Search by pet name..." oninput="filterPets()">
+    </section>
 
-    <h2>Registered Pets</h2>
     <div id="pet-list"></div>
   </div>
 
