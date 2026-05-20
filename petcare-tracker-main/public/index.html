@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PetCare Track</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🐾 PetCare Track</h1>
+    <p class="subtitle">A simple pet health and vaccination tracking system.</p>
+
+    <div class="form-container">
+      <input type="hidden" id="petId">
+
+      <input type="text" id="petName" placeholder="Pet Name">
+      <input type="text" id="petType" placeholder="Pet Type">
+      <input type="number" id="age" placeholder="Age">
+      <input type="text" id="ownerName" placeholder="Owner Name">
+      <input type="text" id="vaccinationStatus" placeholder="Vaccination Status">
+
+      <button id="addBtn" onclick="addPet()">Add Pet</button>
+      <button id="updateBtn" onclick="updatePet()" style="display:none;">Update Pet</button>
+    </div>
+
+    <h2>Registered Pets</h2>
+    <div id="pet-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

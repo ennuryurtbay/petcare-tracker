@@ -8,6 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -24,9 +25,15 @@ const swaggerSpec = swaggerJsdoc(options);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get("/", (req, res) => {
-    res.send("Pet Care Tracker API is running");
-});
+/**
+ * @swagger
+ * /pets:
+ *   get:
+ *     summary: Get all pets
+ *     responses:
+ *       200:
+ *         description: List of pets
+ */
 
 app.get("/pets", (req, res) => {
     db.all("SELECT * FROM pets", [], (err, rows) => {
@@ -37,7 +44,15 @@ app.get("/pets", (req, res) => {
         }
     });
 });
-
+/**
+ * @swagger
+ * /pets:
+ *   post:
+ *     summary: Add a new pet
+ *     responses:
+ *       200:
+ *         description: Pet added successfully
+ */
 app.post("/pets", (req, res) => {
     const { petName, petType, age, ownerName, vaccinationStatus } = req.body;
 
