@@ -76,3 +76,19 @@ http://localhost:3000/api-docs
 ## Project Purpose
 
 This project was created to practice REST API development, CRUD operations, database integration, and backend architecture principles.
+## Additional Features
+- Search pets by name
+- Dashboard statistics for total, completed and pending records
+- Vaccine due soon warning system
+- Overdue vaccine alert system
+- Dark mode support
+- Dynamic frontend updates without full page refresh
+
+## How to Run
+After starting the server, open:
+
+http://localhost:3000
+
+Swagger API documentation:
+
+http://localhost:3000/api-docs
